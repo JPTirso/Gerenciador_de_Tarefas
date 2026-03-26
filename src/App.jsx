@@ -3,7 +3,7 @@ import AddTask from "./components/AddTask";
 import { useState } from "react";
 
 function App() {
-  const [tasks, setTasks] = useState ([
+  const [tasksV, setTasksV] = useState ([
     {
       id:1,
       text: "Estudar React",
@@ -31,7 +31,7 @@ function App() {
          Gerenciador de Tarefas 
         </h1>
        <AddTask />
-       <Tasks tasks={tasks}/>
+       <Tasks tasksP={tasksV}/>
       </div>
     </div>
     
