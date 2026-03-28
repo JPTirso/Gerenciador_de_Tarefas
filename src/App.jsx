@@ -24,6 +24,24 @@ function App() {
     }
 
   ]);
+
+  function onTaskClick(taskid_Clicked){
+    const newTasks = tasksV.map(task => {
+      if (task.id === taskid_Clicked){
+        return{...task, isCompleted: !task.isCompleted};
+      }
+      return task;
+    })
+    setTasksV(newTasks);
+  }
+
+  function deletTask (taskid_Clicked){
+    const deletTask = tasksV.filter(task => task.id != taskid_Clicked)
+    setTasksV(deletTask)
+    }
+  
+
+
   return(
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
      <div className="w-[500px]">
@@ -31,7 +49,7 @@ function App() {
          Gerenciador de Tarefas 
         </h1>
        <AddTask />
-       <Tasks tasksP={tasksV}/>
+       <Tasks tasksP={tasksV} onTaskClickP={onTaskClick} onDeletClick={deletTask}/>
       </div>
     </div>
     
