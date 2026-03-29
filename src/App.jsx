@@ -43,7 +43,7 @@ function App() {
   }
 
   function addTask(title,description) {
-    if(title !== "" && description !== ""){
+    if(title.trim() !== "" && description.trim() !== ""){
       contador.current++;
       const newtask = {
         id: contador.current,
@@ -52,6 +52,9 @@ function App() {
         isCompleted: false,
       };
       setTasksV([...tasksV, newtask])
+    }
+    else{
+      return alert("Preencha todos os campos antes de adicionar")
     }
   }
 
