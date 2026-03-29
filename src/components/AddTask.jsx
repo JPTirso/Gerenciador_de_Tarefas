@@ -15,7 +15,7 @@ function AddTask({ onAddTaskClickP }) {
       <input
         ref={description}
         type="text"
-        placeholder="Digite a descirção da tarefa"
+        placeholder="Digite a descrição da tarefa"
         className="border border-slate-300 outline-slate-400 px-4 py-2 rounded-md"
       ></input>
       <button

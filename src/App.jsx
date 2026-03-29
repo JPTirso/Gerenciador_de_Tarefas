@@ -48,7 +48,7 @@ function App() {
       const newtask = {
         id: contador.current,
         title: title,
-        descriptionP: description,
+        description: description,
         isCompleted: false,
       };
       setTasksV([...tasksV, newtask])
