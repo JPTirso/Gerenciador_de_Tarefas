@@ -1,31 +1,17 @@
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
 import { useState } from "react";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 function App() {
-  let contador = useRef(3);
+  let contador = useRef(JSON.parse(localStorage.getItem("id_contador")) || (0));
 
-  const [tasksV, setTasksV] = useState([
-    {
-      id: 1,
-      title: "Estudar React",
-      description: "23 de março as 14:00",
-      isCompleted: true,
-    },
-    {
-      id: 2,
-      title: "Estudar HTML",
-      description: "23 de março as 18:00",
-      isCompleted: false,
-    },
-    {
-      id: 3,
-      title: "Estudar JS",
-      description: "24 de março as 14:00",
-      isCompleted: false,
-    },
-  ]);
+  const [tasksV, setTasksV] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
+
+  useEffect(() => {
+  localStorage.setItem("tasks", JSON.stringify(tasksV));
+  localStorage.setItem("id_contador", JSON.stringify(contador.current));
+}, [tasksV]);
 
   function onTaskClick(taskid_Clicked) {
     const newTasks = tasksV.map((task) => {
