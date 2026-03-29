@@ -1,7 +1,7 @@
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
-import { useState } from "react";
-import { useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
+
 
 function App() {
   let contador = useRef(JSON.parse(localStorage.getItem("id_contador")) || (0));
